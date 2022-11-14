@@ -1,10 +1,11 @@
 # project/app/api/crud.py
- 
-from typing import Union, List
+
+from typing import List, Union
+
 from app.models.pydantic import SummaryPayloadSchema
 from app.models.tortoise import TextSummary
- 
- 
+
+
 async def post(payload: SummaryPayloadSchema) -> int:
     summary = TextSummary(
         url=payload.url,
@@ -19,6 +20,7 @@ async def get(id: int) -> Union[dict, None]:
     if summary:
         return summary
     return None
+
 
 async def get_all() -> List:
     summaries = await TextSummary.all().values()
