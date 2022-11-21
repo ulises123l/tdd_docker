@@ -1,9 +1,10 @@
+
 # project/tests/test_summaries.py
 
 
 import json
 
-import pytest
+# import pytest
 
 
 def test_create_summary(test_app_with_db):
@@ -62,3 +63,4 @@ def test_read_all_summaries(test_app_with_db):
 
     response_list = response.json()
     assert len(list(filter(lambda d: d["id"] == summary_id, response_list))) == 1
+    
